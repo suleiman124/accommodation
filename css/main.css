@@ -1,0 +1,168 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: azure;
+    color: blue !important;
+}
+.wrapper{
+    background-color: white;
+    /* background-image: url(../images/vector8.jpeg); */
+    width:100%;
+    height:600px;
+    padding-left:15px;
+    margin-top:10px;
+}
+.wrapper .nav ul{
+    width:60%;
+    display:flex;
+    /* justify-content: center; */
+    padding-bottom: 20px;
+    align-items: center;  
+    flex-wrap: wrap;
+    align-content:space-between;
+}
+.wrapper .nav ul li{
+    list-style-type: none;
+    margin-right: 50px;
+    margin-left:30px;
+    padding-top:5px;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: larger; */
+    cursor: pointer;
+}
+.wrapper .nav li:hover{
+    border-bottom: 3px royalblue solid;
+}
+.wrapper .nav .contact{
+    display: flex;
+    width: 40%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: larger;
+}
+.wrapper .nav .contact .tel{
+    
+    background-color: lightgreen;
+    color:white;
+}
+.wrapper .nav .contact .email{
+    background-color: rgb(216, 68, 68);
+    color:white;
+}
+.banner{
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-items: center;
+    flex-wrap: row wrap;
+}
+.banner .banner_words{
+    width:50%;
+    margin-top:10%;
+    padding-left:30px;
+    line-height: 100%;
+    color:royalblue
+}
+.banner .banner_words .first_half h1{
+   font-size: 70px;
+}
+
+.banner .banner_image{
+    /* background-image: url(../images/vector4.jpeg); */
+    width: 50%;
+    /* position: relative; */
+    
+}
+.banner .banner_image img{
+    width: 100%;
+    height:500px;
+    object-fit: contain;
+}
+.container .row .maps .cities{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex:wrap;
+    align-items: left;
+    height:150px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.container .row .maps form{
+   margin:10% 5%;
+   width:100%;
+}
+.container .row .maps form input{
+    width:100%;
+    margin-bottom: 1%;
+ }
+.container .row .maps .image_maps{
+    display: flex;
+    margin-right: 3px;
+}
+.container .row .maps .image_maps:hover{
+    cursor: grab;
+}
+.container .row .maps .image_maps img {
+    width: 10%;
+    height:30px;
+}
+ .signup{
+     background-color: rgb(50, 195, 205);
+ }
+ .form{
+     margin:10% 30%;
+    width: 70%;
+    background-color: rgb(233, 233, 240);
+    padding: 5%;
+    border:3px solid royalblue;
+ }
+ .form input{
+     width:100%;
+     margin-bottom: 3px;
+ }
+ #info{
+     display:none;
+     margin: top 3px30px;
+     padding-top:20px;
+ }
+ .container .title{
+     display: flex;
+ }
+ .container .title .first_section{
+     display: flex;
+     width: 60%;
+ }
+ .container .title .first_section img{
+    margin: 0 1%;
+}
+.container .title .first_section .word{
+    padding-top: 50px;
+    font-size: 30px;
+}
+.container .title .second_section{
+    display: flex;
+     width: 40%;
+}
+.container .title .second_section .word{
+    padding-top: 50px;
+    font-size: 30px;
+}
+.house_views{
+    margin:5% 0px;
+}
+.house_views .views{
+    margin:2% 0px;
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    align-items: center;
+}
+.house_views .views img{
+    margin-right: 10px;
+    border: 1px solid;
+    width: 20%;
+    height:10%;
+}
