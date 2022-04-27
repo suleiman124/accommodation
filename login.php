@@ -1,10 +1,8 @@
 <?php
 
-ob_start();
-session_start();
 if(isset($_SESSION['username'])){
-	header('location: main.html');
-}
+	header('location: main.php');
+}else{
 
 include_once("./php/config.php");
 
@@ -12,21 +10,22 @@ if (isset($_POST['login'])) {
     $username   = $_POST['username'];
     $password = $_POST['password'];
 
+	$sql = "Select * from users where username = '$username'";
 
-    $result = mysqli_query($mysqli, "select 'username', 'password' from users
-        where username='$username' and password='$password'");
+    $result = mysqli_query($mysqli, $sql);
 
-   
-    $user_matched = mysqli_num_rows($result);
-
-  
-    if ($user_matched > 0) {
-
-        $_SESSION["username"] = $username;
-        header("location: main.html");
-    } else {
-        echo "User username or password is not matched <br/><br/>";
-    }
+	if(mysqli_num_rows($result) > 0){
+		if($row = mysqli_fetch_array($result)){
+			// print_r( $row[2]);
+			 if(password_verify($password, $row[2])){
+				 session_start();
+				 $_SESSION['username'] = $row[1];
+				 var_dump($_SESSION['username']);
+				 header('location: main.php');
+			 }
+		}
+	}
+}
 }
 ?>
 <!DOCTYPE html>
@@ -144,7 +143,7 @@ if (isset($_POST['login'])) {
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100">
-				<form  class=" text-center m-5" method = "post method="post">
+				<form  class=" text-center m-5" method = "post">
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -181,14 +180,7 @@ if (isset($_POST['login'])) {
     <footer class="static-bottom text-center py-3 mt-4 bg-primary text-light">
         Copyright&copy;Suleiman Ahmed ROBERT GORDON UNIVERSITY 2022
     </footer>
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="vendor/select2/select2.min.js"></script>
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-	<script src="vendor/countdowntime/countdowntime.js"></script>
+
 	<script src="js/main.js"></script>
 
         

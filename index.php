@@ -29,12 +29,12 @@
 	 <link rel="stylesheet" href="css/animate.css">
 	 <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 	 <link rel="stylesheet" href="css/fl-bigmug-line.css">
-	   
-	 
+
+
 	   <link rel="stylesheet" href="css/aos.css">
-   
+
 	   <link rel="stylesheet" href="css/style2.css">
-   
+
 	 <!-- fonts style -->
 	 <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
 	 <!-- Custom styles for this template -->
@@ -153,18 +153,19 @@ if (isset($_POST['register'])) {
 	$username     = $_POST['username'];
 	$password = $_POST['password'];
 
-	// If email already exix`sts, throw error
-	$user_result = mysqli_query($mysqli, "select * from users where username='$username' and password='$password'");
+	// If email already exists, throw error
+	$user_result = mysqli_query($mysqli, "select * from users where username='$username'");
 
 	$user_matched = mysqli_num_rows($user_result);
 
 	if ($user_matched > 0) {
 		echo "<br/><br/><strong>Error: </strong> User already exists with the username '$username'.";
 	} else {
+		$password = password_hash($password, PASSWORD_DEFAULT);
 		$result   = mysqli_query($mysqli, "INSERT INTO users(username,password) VALUES('$username','$password')");
 
 		if ($result) {
-			header('location: login');
+			header('location: login.php');
 		} else {
 			echo "Registration error. Please try again." . mysqli_error($mysqli);
 		}
@@ -183,14 +184,7 @@ if (isset($_POST['register'])) {
     <footer class="static-bottom text-center py-3 mt-4 bg-primary text-light">
         Copyright&copy;Suleiman Ahmed ROBERT GORDON UNIVERSITY 2022
     </footer>
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="vendor/select2/select2.min.js"></script>
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-	<script src="vendor/countdowntime/countdowntime.js"></script>
+	
 	<script src="js/main.js"></script>
 
         

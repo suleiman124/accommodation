@@ -4,9 +4,9 @@
  * using mysqli_connect instead
  */
 
-$databaseHost     = 'localhost';
-$databaseName     = 'users';
-$databaseUsername = 'root';
-$databasePassword = '';
+$dbHost     = 'localhost';
+$dbName     = 'users';
+$dbUsername = 'root';
+$dbPassword = '';
 
-$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+$mysqli = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName);
